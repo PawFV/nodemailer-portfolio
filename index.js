@@ -5,17 +5,19 @@ const mailer = require('./mailer');
 const bodyParser = require('body-parser');
 require('dotenv').config()
 var cors = require('cors');
-app.use(cors())
+app.use(cors());
 
 // BODY PARSER
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.post('/', async (req, res) => {
 
+
+app.post('/', async (req, res) => {
+   data = req.body
+
+   console.log(data)
    try {
-      data = req.body
-      console.log(data)
       const html = ` 
       <body>
       <h3>Nombre: <small>${data.name}</small> </h3>    
