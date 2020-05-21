@@ -20,11 +20,9 @@ app.get('/', (req,res) => {
 res.send("hola");
 })
 
-app.post('/', async (req, res) => {
+app.post('/', cors(), async (req, res) => {
    data = req.body
-   res.setHeader("Access-Control-Allow-Origin", '*');
-   res.setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS,PUT,DELETE');
-   res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Accept');
+
    console.log(data)
    try {
       const html = ` 
