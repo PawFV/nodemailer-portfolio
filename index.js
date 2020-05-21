@@ -5,13 +5,14 @@ const mailer = require('./mailer');
 const bodyParser = require('body-parser');
 require('dotenv').config()
 var cors = require('cors');
-app.use(cors());
+
+app.use(cors({
+   origin: process.env.DOMAIN
+}));
 
 // BODY PARSER
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
-
-
 
 app.post('/', async (req, res) => {
    data = req.body
